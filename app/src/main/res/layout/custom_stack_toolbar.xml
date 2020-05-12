@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:paddingTop="12dp"
+    android:id="@+id/custom_toolbar"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--You can't see what's there but there are some stuff so don't delete-->
+        <ImageButton
+            android:id="@+id/c_back_ib"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/left_arrow_icon"
+            android:background="@android:color/transparent"
+            android:onClick="backIconClickedAccount"/>
+
+    </RelativeLayout>
+
+
+
+</androidx.appcompat.widget.Toolbar>

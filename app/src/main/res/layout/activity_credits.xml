@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:background="@color/orange">
+
+
+    <LinearLayout
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical"
+        android:background="@color/orange">
+
+        <ImageButton
+            android:id="@+id/credits_screen_back_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:layout_margin="16dp"
+            android:src="@drawable/left_arrow_icon"
+            android:background="@color/orange"/>
+
+        <ImageButton
+            android:layout_width="400dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/orange"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/credits_screen_ill"/>
+
+
+        <RelativeLayout
+            android:id="@+id/credits_sidhartha_ListLayout"
+            android:layout_width="375dp"
+            android:layout_height="130dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/credits_screen_card_bg">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:transitionName="credits_sidhartha_imageTransition"
+                android:id="@+id/credits_sidhartha_profPicTV"
+                app:civ_circle_background_color="@color/colorPrimaryDark"
+                app:civ_border_overlay="true"
+                android:layout_centerVertical="true"
+                app:civ_border_width="0dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/credits_sidhartha_profile_pic" />
+
+            <TextView
+                android:id="@+id/credits_sidhartha_nameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_toEndOf="@+id/credits_sidhartha_profPicTV"
+                android:layout_toRightOf="@+id/credits_sidhartha_profPicTV"
+                android:text="Sidhartha Sekhar"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:transitionName="credits_sidhartha_nameTransition" />
+
+            <TextView
+                android:id="@+id/credits_sidhartha_descTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/credits_sidhartha_nameTV"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_toEndOf="@+id/credits_sidhartha_profPicTV"
+                android:layout_toRightOf="@+id/credits_sidhartha_profPicTV"
+                android:text="Developer and DBA"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:transitionName="credits_sidhartha_descTransition" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/credits_kiran_ListLayout"
+            android:layout_width="375dp"
+            android:layout_gravity="bottom"
+            android:layout_height="130dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/credits_screen_card_bg">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:transitionName="credits_kiran_imageTransition"
+                android:id="@+id/credits_kiran_profPicTV"
+                app:civ_circle_background_color="@color/colorPrimaryDark"
+                app:civ_border_overlay="true"
+                android:layout_centerVertical="true"
+
+                app:civ_border_width="0dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/credits_kiran_profile_pic" />
+
+            <TextView
+                android:id="@+id/credits_kiran_nameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_toEndOf="@+id/credits_kiran_profPicTV"
+                android:layout_toRightOf="@+id/credits_kiran_profPicTV"
+                android:text="Kiran Kumar"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:transitionName="credits_kiran_nameTransition" />
+
+            <TextView
+                android:id="@+id/credits_kiran_descTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/credits_kiran_nameTV"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_toEndOf="@+id/credits_kiran_profPicTV"
+                android:layout_toRightOf="@+id/credits_kiran_profPicTV"
+                android:text="UI Designer and Developer"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:transitionName="descTransition" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/credits_shreya_ListLayout"
+            android:layout_width="375dp"
+            android:layout_height="130dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/credits_screen_card_bg">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/credits_shreya_profPicTV"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/credits_shreya_profile_pic"
+                android:transitionName="credits_shreya_imageTransition"
+                app:civ_border_overlay="true"
+                app:civ_border_width="0dp"
+                app:civ_circle_background_color="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/credits_shreya_nameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_toEndOf="@+id/credits_shreya_profPicTV"
+                android:layout_toRightOf="@+id/credits_shreya_profPicTV"
+                android:text="Shreya Sharma"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:transitionName="credits_shreya_nameTransition" />
+
+            <TextView
+                android:id="@+id/credits_shreya_descTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/credits_shreya_nameTV"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_toEndOf="@+id/credits_shreya_profPicTV"
+                android:layout_toRightOf="@+id/credits_shreya_profPicTV"
+                android:text="UI Wireframer"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:transitionName="credits_shreya_descTransition" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

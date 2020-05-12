@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="82dp"
+    android:id="@+id/custom_toolbar"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/cs_back_ib"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/left_arrow_icon"
+            android:background="@color/colorPrimaryDark"
+            android:layout_gravity="center_vertical"
+            android:onClick="backIconClickedSearch"
+            />
+
+        <EditText
+            android:layout_marginLeft="8dp"
+            android:id="@+id/cs_search_et"
+            android:layout_width="340dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#FFF"
+            android:hint="Search Musify"
+            android:textColorHint="#FFF"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="16dp"
+            android:textSize="16sp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/search_box_bg"
+            android:drawableEnd="@drawable/search_icon"
+            android:paddingRight="16dp"
+            />
+
+    </LinearLayout>
+
+
+
+</androidx.appcompat.widget.Toolbar>

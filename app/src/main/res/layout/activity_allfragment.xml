@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradbackground">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="120dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+                        <LinearLayout
+                            android:id="@+id/layout1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                                <View
+                                    android:layout_width="3dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginTop="16dp"
+                                    android:background="@drawable/underline_bg" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="20dp"
+                                    android:text="Wanna hear again"
+                                    android:textColor="#FFF"
+                                    android:textSize="20sp" />
+
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/relLayout1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/layout1"
+                            >
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/all_rv_1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                </androidx.recyclerview.widget.RecyclerView>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layout2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintTop_toBottomOf="@+id/relLayout1">
+
+                                <View
+                                    android:layout_width="3dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginTop="16dp"
+                                    android:background="@drawable/underline_bg" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="20dp"
+                                    android:text="Listen in your Language"
+                                    android:textColor="#FFF"
+                                    android:textSize="20sp" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/relLayout2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/layout2"
+                            >
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/all_rv_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginTop="1dp"
+                                    android:orientation="horizontal">
+
+                                </androidx.recyclerview.widget.RecyclerView>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layout3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintTop_toBottomOf="@+id/relLayout2">
+
+                                <View
+                                    android:layout_width="3dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginTop="16dp"
+                                    android:background="@drawable/underline_bg" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="20dp"
+                                    android:text="Popular in English"
+                                    android:textColor="#FFF"
+                                    android:textSize="20sp" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/relLayout3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/layout3"
+                            >
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/all_rv_3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginTop="0dp"
+                                    android:orientation="horizontal">
+
+                                </androidx.recyclerview.widget.RecyclerView>
+
+                        </RelativeLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/layout4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintTop_toBottomOf="@+id/relLayout3">
+
+                                <View
+                                    android:layout_width="3dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginTop="16dp"
+                                    android:background="@drawable/underline_bg" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="20dp"
+                                    android:text="Popular in Hindi"
+                                    android:textColor="#FFF"
+                                    android:textSize="20sp" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/relLayout4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/layout4"
+                            >
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/all_rv_4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                </androidx.recyclerview.widget.RecyclerView>
+
+                        </RelativeLayout>
+
+                </LinearLayout>
+
+        </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
