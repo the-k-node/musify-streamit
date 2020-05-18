@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/signin_LinLayout"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="640dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/start_screen_white_bg"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,7 +64,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </com.google.android.material.textfield.TextInputLayout>
-
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressbar"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signin_sibtn"
         android:layout_width="360dp"
@@ -118,5 +127,7 @@
             android:layout_height="13dp"
             android:src="@drawable/text_end_icon"/>
     </LinearLayout>
-
 </LinearLayout>
+
+
+</ScrollView>

@@ -10,7 +10,6 @@
     <include
         android:id="@+id/include"
         layout="@layout/custom_stack_toolbar" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,6 +24,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -48,6 +48,7 @@
                         android:text="Email id" />
 
                     <TextView
+                        android:id="@+id/mail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="36dp"
@@ -74,6 +75,7 @@
                         android:text="Phone" />
 
                     <TextView
+                        android:id="@+id/contact"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="48dp"
@@ -100,6 +102,7 @@
                         android:text="Password" />
 
                     <TextView
+                        android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24dp"
@@ -151,6 +154,7 @@
         app:civ_border_overlay="true"
         app:civ_border_width="0dp"
         android:src="@drawable/jon_snow"
+        android:background="@drawable/profileimagebackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

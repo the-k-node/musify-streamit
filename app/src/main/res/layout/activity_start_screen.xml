@@ -90,7 +90,8 @@
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.747" />
+            app:layout_constraintVertical_bias="0.747"
+            tools:ignore="OnClick" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/ss_signup_btn"
@@ -107,7 +108,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="OnClick" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

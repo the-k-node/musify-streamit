@@ -32,12 +32,16 @@ public class MainActivity extends AppCompatActivity {
     private ToggleButton tbUpDown, tbPLayPause;
     RelativeLayout bottomMusicPlayerLayout;
 
+    String uName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         bottomNavBar = findViewById(R.id.bottom_nav_bar);
+
+          uName=getIntent().getStringExtra("mail");
 
         if(savedInstanceState==null){
             bottomNavBar.setItemSelected(R.id.home_menu,true);
@@ -132,7 +136,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void displayPictureAccount(View view){
-        startActivity(new Intent(this,AccountActivity.class));
+      //  startActivity(new Intent(this,AccountActivity.class));
+        Intent intent=new Intent(getApplicationContext(),AccountActivity.class);
+        intent.putExtra("mail",uName);
+        startActivity(intent);
+
+
+
     }
     public void searchOperation(View view){
         startActivity(new Intent(this,SearchActivity.class));

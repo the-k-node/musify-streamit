@@ -2,20 +2,54 @@ package com.example.musicplayerproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class StartScreenActivity extends AppCompatActivity {
+    private FirebaseAuth mAuth;
+   private ProgressBar progressBar;
+    private FirebaseFirestore db=FirebaseFirestore.getInstance();
+
+//    FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+//            .setTimestampsInSnapshotsEnabled(true)
+//            .build();
+//    db.setFirestoreSettings(settings);
+
+    private static final String Key_mail="mail";
+    private static final String Key_name="name";
+    private static final String Key_mobile="mobile";
+    private static final String Key_password="password";
+
+    private static final String key_pplink="PPLink1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
+
+        mAuth = FirebaseAuth.getInstance();
+
 
     }
 
@@ -29,6 +63,9 @@ public class StartScreenActivity extends AppCompatActivity {
                 final TextInputLayout mEmail, mPass;
                 mEmail = (TextInputLayout) bottomSheetDialog1.findViewById(R.id.signin_email_et);
                 mPass = (TextInputLayout)bottomSheetDialog1.findViewById(R.id.signin_pwd_et);
+
+                progressBar=bottomSheetDialog1.findViewById(R.id.progressbar);
+
                 final String email = mEmail.getEditText().getText().toString();
                 final String pass = mPass.getEditText().getText().toString();
                 if(email.isEmpty() || pass.isEmpty()){
@@ -40,11 +77,42 @@ public class StartScreenActivity extends AppCompatActivity {
                         mPass.setError("password required");
                     }
                 }
+               else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                {
+                    mEmail.setError("Valid email required");
+                }
+
+                else if (pass.length()<6)
+                {
+                    mPass.setError("minimum length 6");
+                }
                 else {
                     mEmail.setErrorEnabled(false);
                     mPass.setErrorEnabled(false);
-                    Toast.makeText(getApplicationContext(), "Signed In: " + email + "\n" + pass, Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    progressBar.setVisibility(View.VISIBLE);
+                    mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if (task.isSuccessful())
+                            {
+                                progressBar.setVisibility(View.GONE);
+                                // String mailget=getIntent().getStringExtra("mail");
+
+                                Toast.makeText(getApplicationContext(), "Signed In: " + email + "\n" + pass, Toast.LENGTH_SHORT).show();
+                               // startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                                intent.putExtra("mail",email);
+                                startActivity(intent);
+                                //finish();
+                            }
+                            else {
+                                Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
                 }
             }
         });
@@ -64,12 +132,14 @@ public class StartScreenActivity extends AppCompatActivity {
                 mSignUpPass = bottomSheetDialog2.findViewById(R.id.signup_pwd_et);
                 mSignUpContact = bottomSheetDialog2.findViewById(R.id.signup_ph_et);
 
-                String namet = mSignUpName.getEditText().getText().toString();
-                String emailt = mSignUpEmail.getEditText().getText().toString();
-                String passt = mSignUpPass.getEditText().getText().toString();
-                String pht = mSignUpContact.getEditText().getText().toString();
+                progressBar=bottomSheetDialog2.findViewById(R.id.progressbar);
 
-                if(namet.isEmpty() || emailt.isEmpty() || passt.isEmpty() || pht.isEmpty() || pht.length()!=10){
+                final String namet = mSignUpName.getEditText().getText().toString();
+                final String emailt = mSignUpEmail.getEditText().getText().toString();
+                final String passt = mSignUpPass.getEditText().getText().toString();
+                final String pht = mSignUpContact.getEditText().getText().toString();
+
+                if(namet.isEmpty() || emailt.isEmpty() || passt.isEmpty() || pht.isEmpty() ){
                     if(namet.isEmpty()){
                         //include required conditions
                         mSignUpName.setError("name required");
@@ -83,18 +153,91 @@ public class StartScreenActivity extends AppCompatActivity {
                     if(pht.isEmpty()){
                         mSignUpContact.setError("contact required");
                     }
-                    if(pht.length()!=10){
-                        mSignUpContact.setError("enter valid 10 digit contact number");
-                    }
+
                 }
+                else if (!Patterns.EMAIL_ADDRESS.matcher(emailt).matches())
+                {
+                    mSignUpEmail.setError("Valid email required");
+                }
+
+                else if (passt.length()<6)
+                {
+                    mSignUpPass.setError("Minimum length is 6");
+                }
+                else if (namet.isEmpty())
+                {
+                    mSignUpName.setError("Name is required");
+                }
+
+                else if (pht.length() <10)
+                {
+                    mSignUpContact.setError("Enetr a 10 digit mNumber");
+                }
+
                 else {
                     mSignUpName.setErrorEnabled(false);
                     mSignUpContact.setErrorEnabled(false);
                     mSignUpEmail.setErrorEnabled(false);
                     mSignUpPass.setErrorEnabled(false);
-                    Toast.makeText(getApplicationContext(), "Signed Up " + namet + emailt + passt + pht, Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                }
+
+                    progressBar.setVisibility(View.VISIBLE);
+
+                    mAuth.createUserWithEmailAndPassword(emailt,passt)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    progressBar.setVisibility(View.GONE);
+
+                                    if (task.isSuccessful())
+                                    {
+
+                                        Map<String, Object> note=new HashMap<>();
+                                        note.put(Key_mail,emailt);
+                                        note.put(Key_password,passt);
+                                        note.put(Key_name,namet);
+                                        note.put(Key_mobile,pht);
+
+                                        note.put(key_pplink," ");
+
+                                        db.collection(emailt).document("UserData").set(note)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        Toast.makeText(getApplicationContext(),"::",Toast.LENGTH_SHORT).show();
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Toast.makeText(getApplicationContext(),"Cant create database",Toast.LENGTH_SHORT).show();
+
+                                                    }
+                                                });
+
+                                        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                                        intent.putExtra("mail",emailt);
+                                        startActivity(intent);
+                                        Toast.makeText(getApplicationContext(),"User registered sucessfully.",Toast.LENGTH_SHORT).show();
+                                       // finish();
+
+                                    }
+                                    else {
+                                        if (task.getException() instanceof FirebaseAuthUserCollisionException)
+                                        {
+                                            Toast.makeText(getApplicationContext(),"User already exist.",Toast.LENGTH_SHORT).show();
+
+                                        }
+                                        else {
+                                            Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    }
+                                }
+                            });
+
+
+
+                 }
             }
         });
         bottomSheetDialog2.show();
