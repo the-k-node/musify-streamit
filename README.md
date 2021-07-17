@@ -8,4 +8,7 @@ PS: Suggested to import this project using Android Studio for better Version Man
 ---
 
 ## Screenshots
-![splash_screen](https://drive.google.com/file/d/1DAaC3JZCxdVFHySN1YavDtuWq-qvb54U/view?usp=sharing)
+Splash Screen: <img src="https://i.ibb.co/W5NLQQb/1-splash-screen.png" alt="1-splash-screen" border="0">
+Sign In Screen: <img src="https://i.ibb.co/ZKtqVTK/2-sign-in.png" alt="2-sign-in" border="0">
+Home Screen: <img src="https://i.ibb.co/j5hfsWj/3-home.png" alt="3-home" border="0">
+DevsInfo Screen: <img src="https://i.ibb.co/dJrRtJY/4-devs-me.png" alt="4-devs-me" border="0">
