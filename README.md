@@ -5,6 +5,8 @@ Music has been a great asset especially in this Quarantine, everybody started to
 
 PS: Suggested to import this project using Android Studio for better Version Management and Hassle-free experience.
 
+<img src="https://i.ibb.co/cx7Z1b6/musify-screen-mockups.png" alt="musify-screen-mockups" border="0">
+
 ---
 
 ## Screenshots
